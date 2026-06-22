@@ -36,6 +36,7 @@ def _secret(k, fallback=""):
     return fallback
 
 def _save_row(row):
+    """Returns (status, detail). status in: sheet, rejected, csv_error, csv_nourl."""
     import urllib.request
     url = _secret("webhook_url", WEBHOOK_URL)
     if url:
@@ -47,10 +48,17 @@ def _save_row(row):
             req = urllib.request.Request(
                 url, data=json.dumps(payload, ensure_ascii=False).encode("utf-8"),
                 headers={"Content-Type": "application/json"}, method="POST")
-            urllib.request.urlopen(req, timeout=15)
-            return
+            body = urllib.request.urlopen(req, timeout=20).read().decode("utf-8", "ignore")
+            if '"ok":true' in body.replace(" ", ""):
+                return ("sheet", "")
+            return ("rejected", body[:300])
         except Exception as e:
-            st.session_state["_save_warn"] = str(e)
+            _csv(row)
+            return ("csv_error", str(e))
+    _csv(row)
+    return ("csv_nourl", "")
+
+def _csv(row):
     path = os.path.join(HERE, "responses.csv")
     new = not os.path.exists(path)
     with open(path, "a", newline="", encoding="utf-8") as f:
@@ -264,34 +272,46 @@ if ss.step == "questions":
     form = form_for(rel, comp, age)
     items = FORMS.get(form, [])
     ans = {}
-    if not items:
-        st.warning("No questions loaded for this form (check questions.json).")
-    for q in items:
-        label = t(q["text"], lang)
-        typ = q["type"]
-        if typ == "single":
-            ans[q["id"]] = st.radio(label, tlist(q["options"], lang), index=None, key=q["id"])
-        elif typ == "multi":
-            st.markdown(f"**{label}** {t(UI['select_all'], lang)}")
-            ans[q["id"]] = [o for o in tlist(q["options"], lang) if st.checkbox(o, key=f"{q['id']}_{o}")]
-        elif typ == "scale":
-            ans[q["id"]] = st.radio(label, tlist(SCALES.get(q["scale"], {}), lang), index=None, key=q["id"])
-        elif typ == "number":
-            ans[q["id"]] = st.text_input(label, key=q["id"])   # text to allow e.g. "all my life"
-        else:  # text
-            ans[q["id"]] = st.text_input(label, key=q["id"])
-        st.divider()
-    if st.button(t(UI["submit"], lang)):
+    # One form -> one Submit button at the end; respondents never press Enter per field.
+    with st.form("qform", clear_on_submit=False):
+        if not items:
+            st.warning("No questions loaded for this form (check questions.json).")
+        for q in items:
+            label = t(q["text"], lang)
+            typ = q["type"]
+            if typ == "single":
+                ans[q["id"]] = st.radio(label, tlist(q["options"], lang), index=None, key=q["id"])
+            elif typ == "multi":
+                st.markdown(f"**{label}** {t(UI['select_all'], lang)}")
+                ans[q["id"]] = [o for o in tlist(q["options"], lang) if st.checkbox(o, key=f"{q['id']}_{o}")]
+            elif typ == "scale":
+                ans[q["id"]] = st.radio(label, tlist(SCALES.get(q["scale"], {}), lang), index=None, key=q["id"])
+            else:  # number or text -> free text box
+                ans[q["id"]] = st.text_input(label, key=q["id"])
+            st.divider()
+        submitted = st.form_submit_button(t(UI["submit"], lang))
+    if submitted:
         row = {"timestamp": dt.datetime.now().isoformat(timespec="seconds"),
                "owner_id": owner_id, "relation": rel, "age_group": age, "compensation": comp,
                "form": form, "language": lang, "consent_variant": ss.consent_variant,
                "parental_consent": ss.parental, "assent": ss.assent, "consent_method": ss.get("consent_method"),
                "signature": ss.get("signature"), "respondent_code": ss.code}
         row.update(ans)
-        _save_row(row)
-        st.success(t(UI["thanks"], lang)); st.balloons()
-        if "_save_warn" in ss: st.caption(f"(Saved to local CSV; Sheets note: {ss['_save_warn']})")
-        go("done")
+        status, detail = _save_row(row)
+        if status == "sheet":
+            st.success(t(UI["thanks"], lang)); st.balloons()
+            go("done")
+        elif status == "rejected":
+            st.error("Reached the Google script, but it refused to write the row. "
+                     "This is almost always a password mismatch: the SECRET in the Apps Script "
+                     "must equal form_token in the app's Secrets (or both be empty). "
+                     f"Script replied: {detail}")
+        elif status == "csv_error":
+            st.error(f"Could not reach the Google script (saved a local copy only). Reason: {detail}")
+        else:  # csv_nourl
+            st.error("No Sheet is connected: the deployed app has an empty WEBHOOK_URL "
+                     "(and no webhook_url in Secrets). Paste your /exec URL and redeploy. "
+                     "A local copy was saved, but that is wiped on restart.")
     st.stop()
 
 if ss.step == "done":
