@@ -26,7 +26,7 @@ FORMS = QDATA.get("forms", {})
 CONSENT_DATA = _load("consent.json", None)
 
 # ---------- storage ----------
-WEBHOOK_URL = ""   # paste your Apps Script /exec URL here, or set webhook_url in Secrets
+WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbwCa1e2XSAH4h9L7ACpThC8jkaBpevywpwVezTcp3H32xhC17k1eN5wA7XoNpO7tls5tg/exec"   # paste your Apps Script /exec URL here, or set webhook_url in Secrets
 def _secret(k, fallback=""):
     try:
         if k in st.secrets:
