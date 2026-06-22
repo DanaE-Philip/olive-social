@@ -146,7 +146,7 @@
   "owner": [
    {
     "id": "D1",
-    "type": "number",
+    "type": "text",
     "text": {
      "en": "Age (years)",
      "he": "גיל (שנים)",
@@ -190,7 +190,7 @@
    },
    {
     "id": "D4",
-    "type": "number",
+    "type": "text",
     "text": {
      "en": "Years living in Israel (write 'all my life' if applicable)",
      "he": "שנות מגורים בישראל (כתוב 'כל חיי' אם רלוונטי)",
@@ -325,7 +325,7 @@
    },
    {
     "id": "D11",
-    "type": "number",
+    "type": "text",
     "text": {
      "en": "Years working / owning at this farm",
      "he": "שנות עבודה / בעלות בחווה זו",
@@ -334,7 +334,7 @@
    },
    {
     "id": "D12",
-    "type": "number",
+    "type": "text",
     "text": {
      "en": "Years working in olive cultivation more broadly",
      "he": "שנות עיסוק בענף הזית באופן כללי",
@@ -434,12 +434,114 @@
    },
    {
     "id": "F2_blocks",
-    "type": "text",
+    "type": "plots_table",
     "text": {
-     "en": null,
-     "he": "פרט מאפיינים מבניים לכל בלוק — מלא שורה אחת לכל בלוק:",
-     "ar": "السمات الهيكلية لكل قسم — املأ صفًا واحدًا لكل قسم:"
-    }
+     "en": "Describe each planting block — one row per block (add rows as needed):",
+     "he": "תאר/י כל בלוק נטיעה — שורה אחת לכל בלוק (אפשר להוסיף שורות):",
+     "ar": "صف كل قسم زراعي — صف واحد لكل قسم (يمكن إضافة صفوف):"
+    },
+    "columns": [
+     {
+      "key": "block",
+      "kind": "text",
+      "label": {
+       "en": "Block name (optional)",
+       "he": "שם הבלוק (לא חובה)",
+       "ar": "اسم القسم (اختياري)"
+      }
+     },
+     {
+      "key": "area",
+      "kind": "text",
+      "label": {
+       "en": "Area (dunam)",
+       "he": "שטח (דונם)",
+       "ar": "المساحة (دونم)"
+      }
+     },
+     {
+      "key": "year",
+      "kind": "text",
+      "label": {
+       "en": "Year planted",
+       "he": "שנת נטיעה",
+       "ar": "سنة الغرس"
+      }
+     },
+     {
+      "key": "spacing",
+      "kind": "text",
+      "label": {
+       "en": "Spacing row × tree (m)",
+       "he": "מרווח שורה × עץ (מ')",
+       "ar": "المسافة صف × شجرة (م)"
+      }
+     },
+     {
+      "key": "cultivar",
+      "kind": "text",
+      "label": {
+       "en": "Cultivar(s)",
+       "he": "זנים",
+       "ar": "الأصناف"
+      }
+     },
+     {
+      "key": "organic",
+      "kind": "select",
+      "label": {
+       "en": "Organic",
+       "he": "אורגני",
+       "ar": "عضوي"
+      },
+      "options": {
+       "en": [
+        "Certified",
+        "In transition",
+        "Not organic"
+       ],
+       "he": [
+        "מוסמך",
+        "במעבר",
+        "לא אורגני"
+       ],
+       "ar": [
+        "معتمد",
+        "في مرحلة انتقالية",
+        "غير عضوي"
+       ]
+      }
+     },
+     {
+      "key": "irrigation",
+      "kind": "select",
+      "label": {
+       "en": "Irrigation",
+       "he": "השקיה",
+       "ar": "الري"
+      },
+      "options": {
+       "en": [
+        "Rainfed",
+        "Drip",
+        "Sprinkler",
+        "Flood"
+       ],
+       "he": [
+        "בעל (גשם)",
+        "טפטוף",
+        "המטרה",
+        "הצפה"
+       ],
+       "ar": [
+        "بعلي (مطري)",
+        "تنقيط",
+        "رشّ",
+        "غمر"
+       ]
+      }
+     }
+    ]
    },
    {
     "id": "F6",
@@ -532,17 +634,17 @@
     },
     "options": {
      "en": [
-      "Yes, primary",
+      "Yes — my main or only source of income",
       "Supplementary alongside other income",
       "Minor / hobby"
      ],
      "he": [
-      "כן, עיקרי",
+      "כן — מקור ההכנסה העיקרי או היחיד שלי",
       "משלים לצד הכנסות אחרות",
       "מזערי / תחביב"
      ],
      "ar": [
-      "نعم، رئيسي",
+      "نعم — مصدر دخلي الرئيسي أو الوحيد",
       "تكميلي إلى جانب دخل آخر",
       "ثانوي / هواية"
      ]
@@ -1795,12 +1897,21 @@
      "he": "החברויות שנוצרו עם אחרים שעובדים או מבקרים במטע הזיתים שלי והאזור הסובב אותו חשובות לי מאוד.",
      "ar": "الصداقات التي تطورت مع الآخرين الذين يعملون أو يزورون بستان الزيتون الخاص بي والمنطقة المحيطة به مهمة جدًا بالنسبة لي."
     }
+   },
+   {
+    "id": "COMMENTS",
+    "type": "longtext",
+    "text": {
+     "en": "Any other comments? (optional)",
+     "he": "הערות נוספות? (לא חובה)",
+     "ar": "أي ملاحظات أخرى؟ (اختياري)"
+    }
    }
   ],
   "worker": [
    {
     "id": "D1",
-    "type": "number",
+    "type": "text",
     "text": {
      "en": "Age (years)",
      "he": "גיל (שנים)",
@@ -1844,7 +1955,7 @@
    },
    {
     "id": "D4",
-    "type": "number",
+    "type": "text",
     "text": {
      "en": "Years living in Israel (write 'all my life' if applicable)",
      "he": "שנות מגורים בישראל (כתוב 'כל חיי' אם רלוונטי)",
@@ -1979,7 +2090,7 @@
    },
    {
     "id": "D11",
-    "type": "number",
+    "type": "text",
     "text": {
      "en": "Years working / owning at this farm",
      "he": "שנות עבודה / בעלות בחווה זו",
@@ -1988,7 +2099,7 @@
    },
    {
     "id": "D12",
-    "type": "number",
+    "type": "text",
     "text": {
      "en": "Years working in olive cultivation more broadly",
      "he": "שנות עיסוק בענף הזית באופן כללי",
@@ -3142,12 +3253,21 @@
      "he": "החברויות שנוצרו עם אחרים שעובדים או מבקרים במטע הזיתים שלי והאזור הסובב אותו חשובות לי מאוד.",
      "ar": "الصداقات التي تطورت مع الآخرين الذين يعملون أو يزورون بستان الزيتون الخاص بي والمنطقة المحيطة به مهمة جدًا بالنسبة لي."
     }
+   },
+   {
+    "id": "COMMENTS",
+    "type": "longtext",
+    "text": {
+     "en": "Any other comments? (optional)",
+     "he": "הערות נוספות? (לא חובה)",
+     "ar": "أي ملاحظات أخرى؟ (اختياري)"
+    }
    }
   ],
   "volunteer": [
    {
     "id": "D1",
-    "type": "number",
+    "type": "text",
     "text": {
      "en": "Age (years)",
      "he": "גיל (שנים)",
@@ -3191,7 +3311,7 @@
    },
    {
     "id": "D4",
-    "type": "number",
+    "type": "text",
     "text": {
      "en": "Years living in Israel (write 'all my life' if applicable)",
      "he": "שנות מגורים בישראל (כתוב 'כל חיי' אם רלוונטי)",
@@ -3343,8 +3463,7 @@
    },
    {
     "id": "fI2",
-    "type": "scale",
-    "scale": "PA",
+    "type": "text",
     "text": {
      "en": "How long have you been helping at this farm? (years)",
      "he": "כמה שנים אתה/את עוזר/ת בחווה זו?",
@@ -4050,12 +4169,21 @@
      "he": "העזרה במטע הזיתים הזה מחברת אותי למסורת רחבה יותר שחשובה לי.",
      "ar": "المساعدة في بستان الزيتون هذا تربطني بتقليد أوسع يهمني."
     }
+   },
+   {
+    "id": "COMMENTS",
+    "type": "longtext",
+    "text": {
+     "en": "Any other comments? (optional)",
+     "he": "הערות נוספות? (לא חובה)",
+     "ar": "أي ملاحظات أخرى؟ (اختياري)"
+    }
    }
   ],
   "family_adult": [
    {
     "id": "D1",
-    "type": "number",
+    "type": "text",
     "text": {
      "en": "Age (years)",
      "he": "גיל (שנים)",
@@ -4099,7 +4227,7 @@
    },
    {
     "id": "D4",
-    "type": "number",
+    "type": "text",
     "text": {
      "en": "Years living in Israel (write 'all my life' if applicable)",
      "he": "שנות מגורים בישראל (כתוב 'כל חיי' אם רלוונטי)",
@@ -4272,8 +4400,7 @@
    },
    {
     "id": "I2",
-    "type": "scale",
-    "scale": "PA",
+    "type": "text",
     "text": {
      "en": "How long have you been involved with this farm? (years)",
      "he": "כמה שנים אתה/את מעורב/ת בחווה זו?",
@@ -5347,12 +5474,21 @@
      "he": "הייתי מצטער/ת אם אף אחד מבני המשפחה שלי לא ימשיך עם המטע הזה אחרי הדור הנוכחי.",
      "ar": "سأشعر بالحزن إذا لم يستمر أحد من عائلتنا في هذا البستان بعد الجيل الحالي."
     }
+   },
+   {
+    "id": "COMMENTS",
+    "type": "longtext",
+    "text": {
+     "en": "Any other comments? (optional)",
+     "he": "הערות נוספות? (לא חובה)",
+     "ar": "أي ملاحظات أخرى؟ (اختياري)"
+    }
    }
   ],
   "family_adolescent": [
    {
     "id": "aD1",
-    "type": "number",
+    "type": "text",
     "text": {
      "en": "How old are you? (years)",
      "he": "בן/בת כמה את/ה? (שנים)",
@@ -5454,7 +5590,7 @@
    },
    {
     "id": "aD6",
-    "type": "number",
+    "type": "text",
     "text": {
      "en": "How many years have you been spending time at this olive grove?",
      "he": "כמה שנים אתה/את מבלה במטע הזיתים הזה?",
@@ -6196,6 +6332,15 @@
       "الزيتون والزيت الذي نصنعه لعائلتنا"
      ]
     }
+   },
+   {
+    "id": "COMMENTS",
+    "type": "longtext",
+    "text": {
+     "en": "Any other comments? (optional)",
+     "he": "הערות נוספות? (לא חובה)",
+     "ar": "أي ملاحظات أخرى؟ (اختياري)"
+    }
    }
   ],
   "family_child": [
@@ -6583,6 +6728,15 @@
       "التقاليد وما أتعلمه من العائلة الأكبر سناً",
       "الزيتون والزيت الذي نصنعه لعائلتنا"
      ]
+    }
+   },
+   {
+    "id": "COMMENTS",
+    "type": "longtext",
+    "text": {
+     "en": "Anything else you want to say? (you don't have to)",
+     "he": "משהו נוסף שתרצה/י לומר? (לא חייבים)",
+     "ar": "أي شيء آخر تريد قوله؟ (لست مضطراً)"
     }
    }
   ]
