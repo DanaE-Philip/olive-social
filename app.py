@@ -28,7 +28,7 @@ import streamlit as st
 
 
 # PASTE your Apps Script web-app URL here (or set webhook_url in the Secrets box).
-WEBHOOK_URL = ""
+WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbyuTER9BhO_G-bfKFpiOGR-OsVul4c8D7AqMa15UffVwvJiG_oE7LLopk3O-Sm-A16BaQ/exec"
 
 def _webhook_url():
     try:
@@ -39,7 +39,7 @@ def _webhook_url():
     return WEBHOOK_URL
 
 # Optional shared password. Best kept in the Secrets box:  form_token = "..."
-FORM_TOKEN = ""
+FORM_TOKEN = "Dana@2012"
 def _form_token():
     try:
         if "form_token" in st.secrets:
