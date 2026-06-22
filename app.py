@@ -26,7 +26,7 @@ FORMS = QDATA.get("forms", {})
 CONSENT_DATA = _load("consent.json", None)
 
 # ---------- storage ----------
-WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbz273Ei_uTlfH4fF-hRHmyJo_mKQqdhYFed8nOTnSwtPDDkw6zAxnkAAFc3BCkUTA4rDQ/exec"   # paste your Apps Script /exec URL here, or set webhook_url in Secrets
+WEBHOOK_URL = ""   # paste your Apps Script /exec URL here, or set webhook_url in Secrets
 def _secret(k, fallback=""):
     try:
         if k in st.secrets:
@@ -128,6 +128,7 @@ UI = {
  "assent": OPT("אני מסכים/ה להשתתף","أوافق على المشاركة","I agree to take part"),
  "must_agree": OPT("יש לאשר את ההסכמה כדי להמשיך.","يجب الموافقة للمتابعة.","Please confirm consent to continue."),
  "select_all": OPT("(ניתן לבחור יותר מאחד)","(يمكن اختيار أكثر من واحد)","(select all that apply)"),
+ "typing_help": OPT("אפשר לענות בעצמך, או שמישהו — הורה או אדם מבוגר יותר — יכול להקליד עבורך. רק אם בא לך.","يمكنك الإجابة بنفسك، أو يمكن لشخص — أحد الوالدين أو شخص أكبر — أن يكتب إجاباتك بدلاً عنك. فقط إذا أردت.","You can answer by yourself, or someone — a parent or an older person — can type your answers for you. Only if you want to."),
  "thanks": OPT("תודה רבה! התשובות נשמרו.","شكراً جزيلاً! تم حفظ إجاباتك.","Thank you! Your answers were saved."),
  "owner_prior": OPT("חתמת על טופס ההסכמה באופן אישי במהלך המפגש שלנו.",
                     "لقد وقّعت على نموذج الموافقة شخصياً خلال لقائنا.",
@@ -185,7 +186,7 @@ if "step" not in ss:
 lang = ss.lang
 _align = "right" if lang in ("he","ar") else "left"
 _dir = "rtl" if lang in ("he","ar") else "ltr"
-st.markdown(f"<style>.block-container{{direction:{_dir};text-align:{_align};}}</style>", unsafe_allow_html=True)
+st.markdown(f"<style>.block-container{{direction:{_dir};text-align:{_align};}} div[data-testid='InputInstructions']{{display:none!important;}}</style>", unsafe_allow_html=True)
 
 owner_id = st.query_params.get("owner", "")
 st.title("🫒 " + t(UI["title"], lang))
@@ -272,6 +273,7 @@ if ss.step == "questions":
     form = form_for(rel, comp, age)
     items = FORMS.get(form, [])
     ans = {}
+    st.info(t(UI["typing_help"], lang))
     # One form -> one Submit button at the end; respondents never press Enter per field.
     with st.form("qform", clear_on_submit=False):
         if not items:
@@ -286,6 +288,20 @@ if ss.step == "questions":
                 ans[q["id"]] = [o for o in tlist(q["options"], lang) if st.checkbox(o, key=f"{q['id']}_{o}")]
             elif typ == "scale":
                 ans[q["id"]] = st.radio(label, tlist(SCALES.get(q["scale"], {}), lang), index=None, key=q["id"])
+            elif typ == "plots_table":
+                st.markdown(f"**{label}**")
+                cfg = {}
+                for c in q["columns"]:
+                    clab = t(c["label"], lang)
+                    if c["kind"] == "select":
+                        cfg[c["key"]] = st.column_config.SelectboxColumn(clab, options=tlist(c["options"], lang))
+                    else:
+                        cfg[c["key"]] = st.column_config.TextColumn(clab)
+                blank = [{c["key"]: None for c in q["columns"]} for _ in range(5)]
+                ans[q["id"]] = st.data_editor(blank, column_config=cfg, num_rows="dynamic",
+                                              hide_index=True, key=q["id"])
+            elif typ == "longtext":
+                ans[q["id"]] = st.text_area(label, key=q["id"])
             else:  # number or text -> free text box
                 ans[q["id"]] = st.text_input(label, key=q["id"])
             st.divider()
