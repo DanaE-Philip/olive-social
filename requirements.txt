@@ -1,5 +1,3 @@
 streamlit
-# the two below are only needed once you connect Google Sheets;
-# the app runs and saves to responses.csv without them
-gspread
-google-auth
+streamlit-drawable-canvas-fix
+Pillow
