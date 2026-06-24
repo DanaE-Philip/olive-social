@@ -189,13 +189,6 @@ _align = "right" if lang in ("he","ar") else "left"
 _dir = "rtl" if lang in ("he","ar") else "ltr"
 st.markdown(f"<style>.block-container{{direction:{_dir};text-align:{_align};}} div[data-testid='InputInstructions']{{display:none!important;}}</style>", unsafe_allow_html=True)
 
-if ss.get("_scrolled_for") != ss.step:
-    _scroll_top(); ss._scrolled_for = ss.step
-
-owner_id = st.query_params.get("owner", "")
-st.title("🫒 " + t(UI["title"], lang))
-if not owner_id:
-    st.warning(t(UI["no_owner"], lang)); st.caption("Developers: append ?owner=SOMEID to test."); st.stop()
 def _scroll_top():
     components.html(
         "<script>const d=window.parent.document;"
@@ -203,6 +196,13 @@ def _scroll_top():
         "const m=d.querySelector('section.main')||d.querySelector('[data-testid=\"stMain\"]')||d.scrollingElement||d.documentElement;"
         "if(m){m.scrollTop=0;}</script>", height=0)
 
+if ss.get("_scrolled_for") != ss.step:
+    _scroll_top(); ss._scrolled_for = ss.step
+
+owner_id = st.query_params.get("owner", "")
+st.title("🫒 " + t(UI["title"], lang))
+if not owner_id:
+    st.warning(t(UI["no_owner"], lang)); st.caption("Developers: append ?owner=SOMEID to test."); st.stop()
 def go(step): ss.step = step; st.rerun()
 
 if ss.step == "lang":
