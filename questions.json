@@ -145,41 +145,6 @@
   "forms": {
     "owner": [
       {
-        "id": "D1",
-        "type": "text",
-        "text": {
-          "en": "Age (years)",
-          "he": "גיל (שנים)",
-          "ar": "العمر (بالسنوات)"
-        }
-      },
-      {
-        "id": "D2",
-        "type": "single",
-        "text": {
-          "en": "Sex",
-          "he": "מין",
-          "ar": "الجنس"
-        },
-        "options": {
-          "en": [
-            "Female",
-            "Male",
-            "Other / prefer not to say"
-          ],
-          "he": [
-            "נקבה",
-            "זכר",
-            "אחר / מעדיף לא לומר"
-          ],
-          "ar": [
-            "أنثى",
-            "ذكر",
-            "آخر / أفضل عدم الإجابة"
-          ]
-        }
-      },
-      {
         "id": "D3",
         "type": "text",
         "text": {
@@ -195,76 +160,6 @@
           "en": "Years living in Israel (write 'all my life' if applicable)",
           "he": "שנות מגורים בישראל (כתוב 'כל חיי' אם רלוונטי)",
           "ar": "سنوات الإقامة في إسرائيل (اكتب 'طوال حياتي' إن كان ذلك ينطبق)"
-        }
-      },
-      {
-        "id": "D5",
-        "type": "single",
-        "text": {
-          "en": "Primary language at home",
-          "he": "השפה העיקרית המדוברת בבית",
-          "ar": "اللغة الأساسية المُستخدمة في المنزل"
-        },
-        "options": {
-          "en": [
-            "Hebrew",
-            "Arabic",
-            "Russian",
-            "Amharic",
-            "English",
-            "Other"
-          ],
-          "he": [
-            "עברית",
-            "ערבית",
-            "רוסית",
-            "אמהרית",
-            "אנגלית",
-            "אחר"
-          ],
-          "ar": [
-            "العبرية",
-            "العربية",
-            "الروسية",
-            "الأمهرية",
-            "الإنجليزية",
-            "أخرى"
-          ]
-        }
-      },
-      {
-        "id": "D6",
-        "type": "single",
-        "text": {
-          "en": "Highest level of education completed",
-          "he": "רמת ההשכלה הגבוהה ביותר שהושלמה",
-          "ar": "أعلى مستوى تعليمي تم إكماله"
-        },
-        "options": {
-          "en": [
-            "Less than primary",
-            "Primary",
-            "Secondary / high school",
-            "Vocational / technical",
-            "Bachelor's degree",
-            "Master's degree or higher"
-          ],
-          "he": [
-            "פחות מיסודי",
-            "יסודי",
-            "תיכון",
-            "מקצועי / טכני",
-            "תואר ראשון",
-            "תואר שני ומעלה"
-          ],
-          "ar": [
-            "أقل من ابتدائي",
-            "ابتدائي",
-            "ثانوي",
-            "مهني / تقني",
-            "بكالوريوس",
-            "ماجستير فأعلى"
-          ]
         }
       },
       {
@@ -315,15 +210,6 @@
         }
       },
       {
-        "id": "D10",
-        "type": "text",
-        "text": {
-          "en": "Role / what you do on this farm (free text)",
-          "he": "תפקיד / מה אתה עושה בחווה זו (טקסט חופשי)",
-          "ar": "الدور / ما الذي تقوم به في هذه المزرعة (نص حر)"
-        }
-      },
-      {
         "id": "D11",
         "type": "text",
         "text": {
@@ -349,199 +235,6 @@
           "he": "מרחק מקורב מהבית לחווה (ק\"מ)",
           "ar": "المسافة التقريبية من منزلك إلى المزرعة (كم)"
         }
-      },
-      {
-        "id": "F1",
-        "type": "text",
-        "text": {
-          "en": "Farm size — net cultivated area (dunams)",
-          "he": "גודל החווה — שטח מעובד נטו (דונמים)",
-          "ar": "مساحة المزرعة — المساحة الصافية المزروعة (دونم)"
-        }
-      },
-      {
-        "id": "F1_region",
-        "type": "single",
-        "text": {
-          "en": "In which region is the farm located?",
-          "he": "באיזה אזור נמצאת החווה?",
-          "ar": "في أي منطقة تقع المزرعة؟"
-        },
-        "options": {
-          "en": [
-            "Western Galilee",
-            "Carmel",
-            "Golan Heights",
-            "Jezreel Valley",
-            "Other (specify)"
-          ],
-          "he": [
-            "גליל מערבי",
-            "כרמל",
-            "רמת הגולן",
-            "עמק יזרעאל",
-            "אחר (פרט/י)"
-          ],
-          "ar": [
-            "الجليل الغربي",
-            "الكرمل",
-            "مرتفعات الجولان",
-            "مرج ابن عامر",
-            "أخرى (يُرجى التحديد)"
-          ]
-        }
-      },
-      {
-        "id": "F2",
-        "type": "text",
-        "text": {
-          "en": "If your farm has multiple distinct planting blocks (sub-orchards with different ages, cultivars, or densities), please describe each block in the table below. If your farm is a single planting, fill in only Block 1.",
-          "he": "אם בחווה שלך יש מספר בלוקים נטועים נפרדים (תת-מטעים בעלי גילאים, זנים או צפיפויות שונים), נא תאר/י כל בלוק בטבלה למטה. אם החווה היא מקטע נטיעה אחד, מלא/י רק את בלוק 1.",
-          "ar": "إذا كانت مزرعتك تحتوي على عدة أقسام زراعية مميزة (بساتين فرعية ذات أعمار أو أصناف أو كثافات مختلفة)، يُرجى وصف كل قسم في الجدول أدناه. إذا كانت مزرعتك زراعة واحدة فقط، املأ القسم 1 فقط."
-        }
-      },
-      {
-        "id": "F2_count",
-        "type": "single",
-        "text": {
-          "en": "How many distinct planting blocks does this farm have?",
-          "he": "כמה בלוקים נטועים נפרדים יש בחווה זו?",
-          "ar": "كم عدد الأقسام الزراعية المميزة في هذه المزرعة؟"
-        },
-        "options": {
-          "en": [
-            "1",
-            "2",
-            "3",
-            "4",
-            "5+"
-          ],
-          "he": [
-            "1",
-            "2",
-            "3",
-            "4",
-            "5+"
-          ],
-          "ar": [
-            "1",
-            "2",
-            "3",
-            "4",
-            "5+"
-          ]
-        }
-      },
-      {
-        "id": "F2_blocks",
-        "type": "plots_table",
-        "text": {
-          "en": "Describe each planting block — one row per block (add rows as needed):",
-          "he": "תאר/י כל בלוק נטיעה — שורה אחת לכל בלוק (אפשר להוסיף שורות):",
-          "ar": "صف كل قسم زراعي — صف واحد لكل قسم (يمكن إضافة صفوف):"
-        },
-        "columns": [
-          {
-            "key": "block",
-            "kind": "text",
-            "label": {
-              "en": "Block name (optional)",
-              "he": "שם הבלוק (לא חובה)",
-              "ar": "اسم القسم (اختياري)"
-            }
-          },
-          {
-            "key": "area",
-            "kind": "text",
-            "label": {
-              "en": "Area (dunam)",
-              "he": "שטח (דונם)",
-              "ar": "المساحة (دونم)"
-            }
-          },
-          {
-            "key": "year",
-            "kind": "text",
-            "label": {
-              "en": "Year planted",
-              "he": "שנת נטיעה",
-              "ar": "سنة الغرس"
-            }
-          },
-          {
-            "key": "spacing",
-            "kind": "text",
-            "label": {
-              "en": "Spacing row × tree (m)",
-              "he": "מרווח שורה × עץ (מ')",
-              "ar": "المسافة صف × شجرة (م)"
-            }
-          },
-          {
-            "key": "cultivar",
-            "kind": "text",
-            "label": {
-              "en": "Cultivar(s)",
-              "he": "זנים",
-              "ar": "الأصناف"
-            }
-          },
-          {
-            "key": "organic",
-            "kind": "select",
-            "label": {
-              "en": "Organic",
-              "he": "אורגני",
-              "ar": "عضوي"
-            },
-            "options": {
-              "en": [
-                "Certified",
-                "In transition",
-                "Not organic"
-              ],
-              "he": [
-                "מוסמך",
-                "במעבר",
-                "לא אורגני"
-              ],
-              "ar": [
-                "معتمد",
-                "في مرحلة انتقالية",
-                "غير عضوي"
-              ]
-            }
-          },
-          {
-            "key": "irrigation",
-            "kind": "select",
-            "label": {
-              "en": "Irrigation",
-              "he": "השקיה",
-              "ar": "الري"
-            },
-            "options": {
-              "en": [
-                "Rainfed",
-                "Drip",
-                "Sprinkler",
-                "Flood"
-              ],
-              "he": [
-                "בעל (גשם)",
-                "טפטוף",
-                "המטרה",
-                "הצפה"
-              ],
-              "ar": [
-                "بعلي (مطري)",
-                "تنقيط",
-                "رشّ",
-                "غمر"
-              ]
-            }
-          }
-        ]
       },
       {
         "id": "F6",
@@ -625,32 +318,6 @@
         }
       },
       {
-        "id": "F9",
-        "type": "single",
-        "text": {
-          "en": "Is olive farming your primary source of income?",
-          "he": "האם גידול הזיתים הוא מקור ההכנסה העיקרי שלך?",
-          "ar": "هل زراعة الزيتون هي مصدر دخلك الرئيسي؟"
-        },
-        "options": {
-          "en": [
-            "Yes — my main or only source of income",
-            "Supplementary alongside other income",
-            "Minor / hobby"
-          ],
-          "he": [
-            "כן — מקור ההכנסה העיקרי או היחיד שלי",
-            "משלים לצד הכנסות אחרות",
-            "מזערי / תחביב"
-          ],
-          "ar": [
-            "نعم — مصدر دخلي الرئيسي أو الوحيد",
-            "تكميلي إلى جانب دخل آخر",
-            "ثانوي / هواية"
-          ]
-        }
-      },
-      {
         "id": "F9_SELFPAY",
         "type": "single",
         "text": {
@@ -673,184 +340,6 @@
             "أتقاضى راتباً ثابتاً",
             "سحوبات غير منتظمة / من الأرباح",
             "لا أدفع لنفسي أجراً"
-          ]
-        }
-      },
-      {
-        "id": "F10",
-        "type": "multi",
-        "text": {
-          "en": "What kind of land borders the grove? (select all that apply)",
-          "he": "אילו שטחים גובלים במטע? (סמן/י את כל המתאים)",
-          "ar": "ما نوع الأراضي المجاورة للبستان؟ (اختر كل ما ينطبق)"
-        },
-        "options": {
-          "en": [
-            "Open / natural land",
-            "Other agricultural land",
-            "Neither"
-          ],
-          "he": [
-            "שטחים פתוחים / טבעיים",
-            "שטחים חקלאיים אחרים",
-            "אף אחד מהם"
-          ],
-          "ar": [
-            "أراضٍ مفتوحة / طبيعية",
-            "أراضٍ زراعية أخرى",
-            "لا شيء من ذلك"
-          ]
-        }
-      },
-      {
-        "id": "F11",
-        "type": "single",
-        "text": {
-          "en": "Is the grove adjacent to any built or urban area? If yes, please describe briefly.",
-          "he": "האם המטע גובל בשטח בנוי או עירוני? אם כן, נא תאר/י בקצרה.",
-          "ar": "هل البستان مجاور لأي منطقة مبنية أو حضرية؟ إذا نعم، يُرجى الوصف باختصار."
-        },
-        "options": {
-          "en": [
-            "No",
-            "Yes (describe)"
-          ],
-          "he": [
-            "לא",
-            "כן (פרט/י)"
-          ],
-          "ar": [
-            "لا",
-            "نعم (يُرجى الوصف)"
-          ]
-        }
-      },
-      {
-        "id": "F12",
-        "type": "single",
-        "text": {
-          "en": "What was on this land before the olive grove was planted?",
-          "he": "מה היה על השטח לפני נטיעת מטע הזיתים?",
-          "ar": "ماذا كان على هذه الأرض قبل غرس بستان الزيتون؟"
-        },
-        "options": {
-          "en": [
-            "Existing olive grove",
-            "Other agricultural use (specify)",
-            "Natural / uncultivated land (specify type)",
-            "Other (specify)"
-          ],
-          "he": [
-            "מטע זיתים קיים",
-            "שימוש חקלאי אחר (פרט/י)",
-            "שטח טבעי / לא מעובד (פרט/י איזה סוג)",
-            "אחר (פרט/י)"
-          ],
-          "ar": [
-            "بستان زيتون قائم",
-            "استخدام زراعي آخر (يُرجى التحديد)",
-            "أرض طبيعية / غير مزروعة (حدّد النوع)",
-            "أخرى (يُرجى التحديد)"
-          ]
-        }
-      },
-      {
-        "id": "F13",
-        "type": "single",
-        "text": {
-          "en": "Have you received government agricultural support or subsidies for this farm? If yes, roughly how much and for what?",
-          "he": "האם קיבלת תמיכה או סבסוד ממשלתי / חקלאי עבור חווה זו? אם כן, בקירוב כמה ועבור מה?",
-          "ar": "هل تلقّيت دعمًا حكوميًا / زراعيًا أو إعانات لهذه المزرعة؟ إذا نعم، كم تقريبًا ولأي غرض؟"
-        },
-        "options": {
-          "en": [
-            "No",
-            "Yes (specify amount and purpose)"
-          ],
-          "he": [
-            "לא",
-            "כן (פרט/י סכום ומטרה)"
-          ],
-          "ar": [
-            "لا",
-            "نعم (يُرجى تحديد المبلغ والغرض)"
-          ]
-        }
-      },
-      {
-        "id": "MULTI_M_PROF",
-        "type": "multi",
-        "text": {
-          "en": "Select all that apply",
-          "he": "בחר/י את כל המתאים",
-          "ar": "اختر كل ما ينطبق"
-        },
-        "options": {
-          "en": [
-            "For profit / economic return",
-            "As supplementary income alongside other work",
-            "Continuing a family farm inherited from previous generations",
-            "To pass the farm on to my children",
-            "To work together with family members",
-            "Olives are part of my cultural heritage",
-            "Religious or spiritual significance of olives / olive oil",
-            "Personal connection to this specific land",
-            "Keeping farmland in active use (belief that productive land should not sit idle)",
-            "To keep ownership / status of the land",
-            "To preserve the olive landscape of the region",
-            "To produce olives / oil for my own family's consumption",
-            "Pride in producing high-quality oil",
-            "To be self-employed / my own boss",
-            "Love of working the land — drawn to agricultural labor itself",
-            "Rural lifestyle / working outdoors",
-            "Belonging to a community of olive growers",
-            "Environmental stewardship of land and trees",
-            "Land as long-term financial investment",
-            "Other (please specify): __________"
-          ],
-          "he": [
-            "לרווח / תשואה כלכלית",
-            "כהכנסה משלימה לצד עבודה אחרת",
-            "המשך חוות משפחתית שעברה בירושה מדורות קודמים",
-            "להעביר את החווה לילדיי",
-            "לעבוד יחד עם בני משפחה",
-            "הזית הוא חלק מהמורשת התרבותית שלי",
-            "משמעות דתית או רוחנית של הזית / שמן הזית",
-            "קשר אישי לקרקע ספציפית זו",
-            "שמירה על קרקע חקלאית בשימוש פעיל (אמונה שקרקע פוריה לא צריכה להישאר ללא עיבוד)",
-            "לשמור על בעלות / מעמד הקרקע",
-            "לשמר את נוף הזיתים של האזור",
-            "לייצר זיתים / שמן לצריכת המשפחה שלי",
-            "גאווה בייצור שמן באיכות גבוהה",
-            "להיות עצמאי / אדון לעצמי",
-            "אהבת עבודת האדמה — נמשך לעבודה החקלאית עצמה",
-            "אורח חיים כפרי / עבודה בחיק הטבע",
-            "השתייכות לקהילת מגדלי זיתים",
-            "אחריות סביבתית כלפי הקרקע והעצים",
-            "הקרקע כהשקעה כלכלית לטווח ארוך",
-            "אחר (אנא פרט): __________"
-          ],
-          "ar": [
-            "من أجل الربح / العائد الاقتصادي",
-            "كدخل تكميلي إلى جانب عمل آخر",
-            "استمرار مزرعة عائلية موروثة من الأجيال السابقة",
-            "لتوريث المزرعة لأطفالي",
-            "للعمل مع أفراد العائلة",
-            "الزيتون جزء من تراثي الثقافي",
-            "الأهمية الدينية أو الروحية للزيتون / زيت الزيتون",
-            "ارتباط شخصي بهذه الأرض تحديدًا",
-            "إبقاء الأراضي الزراعية في استخدام نشط (الإيمان بأن الأرض المنتجة لا ينبغي أن تبقى دون استغلال)",
-            "للحفاظ على الملكية / وضع الأرض",
-            "للحفاظ على المشهد الطبيعي للزيتون في المنطقة",
-            "لإنتاج الزيتون / الزيت لاستهلاك عائلتي",
-            "الفخر بإنتاج زيت عالي الجودة",
-            "أن أكون مستقلًا / صاحب عملي",
-            "حب العمل في الأرض — انجذاب للعمل الزراعي بحد ذاته",
-            "نمط حياة ريفي / العمل في الهواء الطلق",
-            "الانتماء إلى مجتمع مزارعي الزيتون",
-            "العناية البيئية بالأرض والأشجار",
-            "الأرض كاستثمار مالي طويل الأمد",
-            "أخرى (يُرجى التحديد): __________"
           ]
         }
       },
@@ -1986,41 +1475,6 @@
           "en": "Years living in Israel (write 'all my life' if applicable)",
           "he": "שנות מגורים בישראל (כתוב 'כל חיי' אם רלוונטי)",
           "ar": "سنوات الإقامة في إسرائيل (اكتب 'طوال حياتي' إن كان ذلك ينطبق)"
-        }
-      },
-      {
-        "id": "D5",
-        "type": "single",
-        "text": {
-          "en": "Primary language at home",
-          "he": "השפה העיקרית המדוברת בבית",
-          "ar": "اللغة الأساسية المُستخدمة في المنزل"
-        },
-        "options": {
-          "en": [
-            "Hebrew",
-            "Arabic",
-            "Russian",
-            "Amharic",
-            "English",
-            "Other"
-          ],
-          "he": [
-            "עברית",
-            "ערבית",
-            "רוסית",
-            "אמהרית",
-            "אנגלית",
-            "אחר"
-          ],
-          "ar": [
-            "العبرية",
-            "العربية",
-            "الروسية",
-            "الأمهرية",
-            "الإنجليزية",
-            "أخرى"
-          ]
         }
       },
       {
@@ -3313,41 +2767,6 @@
         }
       },
       {
-        "id": "D5",
-        "type": "single",
-        "text": {
-          "en": "Primary language at home",
-          "he": "השפה העיקרית המדוברת בבית",
-          "ar": "اللغة الأساسية المُستخدمة في المنزل"
-        },
-        "options": {
-          "en": [
-            "*Hebrew",
-            "Arabic",
-            "Russian",
-            "Amharic",
-            "English",
-            "Other"
-          ],
-          "he": [
-            "עברית",
-            "ערבית",
-            "רוסית",
-            "אמהרית",
-            "אנגלית",
-            "אחר*"
-          ],
-          "ar": [
-            "العبرية",
-            "العربية",
-            "الروسية",
-            "الأمهرية",
-            "الإنجليزية",
-            "أخرى"
-          ]
-        }
-      },
-      {
         "id": "D6",
         "type": "single",
         "text": {
@@ -4226,41 +3645,6 @@
           "en": "Years living in Israel (write 'all my life' if applicable)",
           "he": "שנות מגורים בישראל (כתוב 'כל חיי' אם רלוונטי)",
           "ar": "سنوات الإقامة في إسرائيل (اكتب 'طوال حياتي' إن كان ذلك ينطبق)"
-        }
-      },
-      {
-        "id": "D5",
-        "type": "single",
-        "text": {
-          "en": "Primary language at home",
-          "he": "השפה העיקרית המדוברת בבית",
-          "ar": "اللغة الأساسية المُستخدمة في المنزل"
-        },
-        "options": {
-          "en": [
-            "*Hebrew",
-            "Arabic",
-            "Russian",
-            "Amharic",
-            "English",
-            "Other"
-          ],
-          "he": [
-            "עברית",
-            "ערבית",
-            "רוסית",
-            "אמהרית",
-            "אנגלית",
-            "אחר*"
-          ],
-          "ar": [
-            "العبرية",
-            "العربية",
-            "الروسية",
-            "الأمهرية",
-            "الإنجليزية",
-            "أخرى"
-          ]
         }
       },
       {
@@ -5516,35 +4900,6 @@
         }
       },
       {
-        "id": "aD3",
-        "type": "single",
-        "text": {
-          "en": "What is the main language you speak at home?",
-          "he": "מה השפה העיקרית שאתה/את מדבר/ת בבית?",
-          "ar": "ما هي اللغة الرئيسية التي تتحدثها في المنزل؟"
-        },
-        "options": {
-          "en": [
-            "*Hebrew",
-            "Arabic",
-            "Russian",
-            "Other"
-          ],
-          "he": [
-            "עברית",
-            "ערבית",
-            "רוסית",
-            "אחר*"
-          ],
-          "ar": [
-            "العبرية",
-            "العربية",
-            "الروسية",
-            "أخرى"
-          ]
-        }
-      },
-      {
         "id": "aD4",
         "type": "text",
         "text": {
@@ -6370,35 +5725,6 @@
             "فتاة",
             "فتى",
             "شيء آخر / لا أرغب في الإجابة"
-          ]
-        }
-      },
-      {
-        "id": "cD3",
-        "type": "single",
-        "text": {
-          "en": "What language do you speak most at home?",
-          "he": "באיזו שפה אתה/את מדבר/ת הכי הרבה בבית?",
-          "ar": "بأي لغة تتحدث في المنزل أكثر شيء؟"
-        },
-        "options": {
-          "en": [
-            "*Hebrew",
-            "Arabic",
-            "Russian",
-            "Something else"
-          ],
-          "he": [
-            "עברית",
-            "ערבית",
-            "רוסית",
-            "משהו אחר*"
-          ],
-          "ar": [
-            "العبرية",
-            "العربية",
-            "الروسية",
-            "شيء آخر"
           ]
         }
       },
